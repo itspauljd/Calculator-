@@ -1,3 +1,7 @@
+const numberKeys = document.getElementsByClassName('num');
+
+
+// operator functions 
 function addition(num1, num2) {
     num1 + num2
 }
@@ -11,6 +15,7 @@ function division(num1, num2) {
     num1 / num2
 }
 
+// operate function 
 function operate(operator, num1, num2) {
     if (operator == 'addition') {
         addition(num1, num2);
@@ -23,3 +28,11 @@ function operate(operator, num1, num2) {
     }
 }
 
+const numKeyArray = Array.from(numberKeys);
+numKeyArray.forEach(key => {
+    key.addEventListener('click', display)
+})
+
+function display() {
+    console.log('hi')
+}
