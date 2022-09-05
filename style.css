@@ -42,3 +42,18 @@ body {
     height: 50px;
     width: 180px;
 }
+
+.keyContainer {
+    margin-top: 25px;
+    width: 550px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.key {
+    width: 120px;
+    height: 90px;
+    font-size: large;
+}
