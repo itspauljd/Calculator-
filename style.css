@@ -30,7 +30,15 @@ body {
 
 .topKeys {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     box-sizing: border-box;
+    margin-top: 25px;
     width: 550px;
+    height: 50px;
+}
+
+.topButtons {
+    box-sizing: border-box;
+    height: 50px;
+    width: 180px;
 }
