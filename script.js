@@ -1,3 +1,4 @@
+const displayElement = document.getElementById('display')
 const numberKeys = document.getElementsByClassName('num');
 
 
@@ -24,15 +25,15 @@ function operate(operator, num1, num2) {
     } else if (operator = 'multiplication') {
         multiplication(num1, num2);
     } else if (operator = 'division') {
-        division (num1, num2);
+        division(num1, num2);
     }
 }
 
 const numKeyArray = Array.from(numberKeys);
 numKeyArray.forEach(key => {
-    key.addEventListener('click', display)
+    key.addEventListener('click', function () {
+        displayElement.innerText = displayElement.innerText + key.innerText;
+    });
 })
 
-function display() {
-    console.log('hi')
-}
+
