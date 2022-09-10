@@ -2,7 +2,7 @@ const displayElement = document.getElementById('display')
 const deleteKey = document.getElementById('delete')
 const clearKey = document.getElementById('clear')
 const numberKeys = document.getElementsByClassName('num');
-
+const decimalKey = document.getElementsByClassName('decimal');
 
 // operator functions 
 function addition(num1, num2) {
@@ -31,8 +31,6 @@ function operate(operator, num1, num2) {
     }
 }
 
-
-
 // Code displays values on key presses
 const numKeyArray = Array.from(numberKeys);
 numKeyArray.forEach(key => {
@@ -43,8 +41,17 @@ numKeyArray.forEach(key => {
     });
 })
 
+
+
 // delete function 
 deleteKey.addEventListener('click', deleteFunction)  
 function deleteFunction() {
     displayElement.innerText = displayElement.innerText.slice(0,-1)
 }
+
+// clear function
+clearKey.addEventListener('click', clearFunction) 
+function clearFunction() {
+    displayElement.innerText = ''
+}
+
