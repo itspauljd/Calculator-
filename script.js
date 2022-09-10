@@ -1,4 +1,6 @@
 const displayElement = document.getElementById('display')
+const deleteKey = document.getElementById('delete')
+const clearKey = document.getElementById('clear')
 const numberKeys = document.getElementsByClassName('num');
 
 
@@ -29,11 +31,20 @@ function operate(operator, num1, num2) {
     }
 }
 
+
+
+// Code displays values on key presses
 const numKeyArray = Array.from(numberKeys);
 numKeyArray.forEach(key => {
     key.addEventListener('click', function () {
-        displayElement.innerText = displayElement.innerText + key.innerText;
+        if (displayElement.innerText.length < 15) {
+            displayElement.innerText = displayElement.innerText + key.innerText;
+        }
     });
 })
 
-
+// delete function 
+deleteKey.addEventListener('click', deleteFunction)  
+function deleteFunction() {
+    displayElement.innerText = displayElement.innerText.slice(0,-1)
+}
