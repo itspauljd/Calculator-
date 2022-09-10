@@ -1,8 +1,8 @@
 const displayElement = document.getElementById('display')
+const decimalKey = document.getElementById('decimal');
 const deleteKey = document.getElementById('delete')
 const clearKey = document.getElementById('clear')
 const numberKeys = document.getElementsByClassName('num');
-const decimalKey = document.getElementsByClassName('decimal');
 
 // operator functions 
 function addition(num1, num2) {
@@ -31,7 +31,7 @@ function operate(operator, num1, num2) {
     }
 }
 
-// Code displays values on key presses
+// code displays values on key presses
 const numKeyArray = Array.from(numberKeys);
 numKeyArray.forEach(key => {
     key.addEventListener('click', function () {
@@ -41,16 +41,28 @@ numKeyArray.forEach(key => {
     });
 })
 
-
+// code makes sure decimals cannot be repeated
+decimalKey.addEventListener('click', function () {
+    let displayArray = displayElement.innerText.split('');
+    var count = 0;
+    for (i = 0; i < displayArray.length; i++) {
+        if (displayArray[i] == '.') {
+            count += 1
+        }
+    }
+    if (count == 0 && displayElement.innerText.length < 15) {
+        displayElement.innerText = displayElement.innerText + '.'
+    }
+})
 
 // delete function 
-deleteKey.addEventListener('click', deleteFunction)  
+deleteKey.addEventListener('click', deleteFunction);
 function deleteFunction() {
-    displayElement.innerText = displayElement.innerText.slice(0,-1)
+    displayElement.innerText = displayElement.innerText.slice(0, -1)
 }
 
 // clear function
-clearKey.addEventListener('click', clearFunction) 
+clearKey.addEventListener('click', clearFunction);
 function clearFunction() {
     displayElement.innerText = ''
 }
